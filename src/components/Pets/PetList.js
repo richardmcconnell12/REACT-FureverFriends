@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
 import PetCard from "./PetCard"
+import Card from '@material-ui/core/Card';
+import "./Pet.css"
 
-export default class PetList extends Component {
+
+class PetList extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="allPets">
-                    {}
-                </div>
+                <Card className="pets">
+                    {
+                        this.props.pets.map(pet => {
+                            return <PetCard key={this.props.petfinder.pet} pet={pet}
+                            />
+                        })
+                    }
+                </Card>
             </React.Fragment>
         )
     }
 }
+
+export default PetList
