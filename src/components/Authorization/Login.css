@@ -31,6 +31,7 @@
         margin-top:20px;
         color:grey;
     }
+
     .register{
         margin-top:20px;
         color:grey;
@@ -90,6 +91,11 @@
 
     .signUpLink{
         text-align: center;
+        color:whitesmoke
+    }
+
+    .signUpLink:hover {
+        color: rgb(64, 84, 178);
     }
 
     .backButton{
@@ -97,9 +103,9 @@
     }
 
     .registerContainer{
-        background-color: lightgray;
+        background-color: whitesmoke;
     }
-    
+
     h2{
         color: rgb(75, 89, 167)
     }
@@ -107,6 +113,10 @@
     .btn.btn-primary.signIn {
         background-color: rgb(64, 84, 178);
         border-color: rgb(64, 84, 178)
+    }
+
+    .fureverFriendsLogo {
+        margin-top: 25px;
     }
 
 }

@@ -37,7 +37,7 @@ export default class Login extends Component {
         console.log(this.props.users)
         console.log(this.state)
         let authenticated = this.props.users.find(user =>   //The find() method returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
-            user.name === this.state.email)
+            user.email === this.state.email)
         console.log(currentUser)
         console.log(this.props.users)
 
@@ -66,8 +66,8 @@ export default class Login extends Component {
     }
     //if the username is not equal to null remove everything in the session storage.
     componentDidMount() {
-        if (sessionStorage.getItem("username") !== null) {
-            sessionStorage.removeItem("username")
+        if (sessionStorage.getItem("email") !== null) {
+            sessionStorage.removeItem("email")
             sessionStorage.removeItem("userId")
             sessionStorage.removeItem("credentials")
         }

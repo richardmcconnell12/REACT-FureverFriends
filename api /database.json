@@ -1,0 +1,18 @@
+{
+    "users": [
+        {
+            "email": "ricky@email.com",
+            "password": "ricky",
+            "id": 1
+        }
+    ],
+    "pets": [
+        {
+            "name": "Wilson",
+            "age": "Adult",
+            "description": "Goodest boy",
+            "id": 1
+        }
+    ],
+    "petInterested": []
+}
