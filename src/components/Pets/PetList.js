@@ -6,32 +6,37 @@ import "./Pet.css"
 
 class PetList extends Component {
 
-
-    componentDidMount() {
-
-    }
-
-
     render() {
-        console.log(this.props.pets)
-        let pets = this.props.pets["petfinder"];
-        // console.log("PETS", pets.pet)
-        for (let key in pets) {
-            console.log("key", key, pets[key]["name"])
-            console.log("age", key, pets[key]["age"])
-            console.log("breed", key, pets[key]["breeds"])
-            console.log("description", key, pets[key]["description"])
+        // let allPets = []
+        // // console.log("come on, gotta dig deeper", pets)
+        // for (let key in this.props.pets) {
+        //     // console.log("key", key)
+        //     if (this.props.pets[key]["pet"]) {
+        //         console.log("pet", this.props.pets[key]["pet"])
+        //         allPets = this.props.pets[key]["pet"];
+        //     }
 
-        }
+
+        // }
+        // // console.log("props", this.props.pets)
+        // allPets.map(pet => {
+        //     // for (let key in pet.name) {
+        //     //     console.log("petkey", pet.name[key])
+        //     // }
+        //     Object.values(pet)
+        //     console.log("alll", pet)
+
+        // })
+        console.log("props", this.props.pets)
         return (
             <React.Fragment>
                 <Card className="pets">
-                    {/* {
+                    {
                         this.props.pets.map(pet => {
-                            return <PetCard key={this.props.petfinder.pet} pet={pet}
+                            return <PetCard key={pet.id.$t} pet={pet}
                             />
                         })
-                    } */}
+                    }
                 </Card>
             </React.Fragment>
         )

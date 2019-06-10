@@ -8,12 +8,13 @@ export default class PetCard extends Component {
 
     render() {
         return (
-            <div key={this.props.pet.id} className="card">
+            <div key={this.props.pet.id.$t} className="card">
 
                 <Card className="card-body">
-                    <CardContent> <h3>{this.props.petfinder.pet.name} </h3></CardContent>
-                    <Typography variant="body2" color="textPrimary" component="p">{this.props.petfinder.breeds.breed}</Typography>
-                    <Typography variant="body2" color="textPrimary" component="p"> {this.props.petfinder.description} </Typography>
+                    <CardContent> <h3>{this.props.pet.name.$t} </h3></CardContent>
+                    <img src={this.props.pet.media.photos.photo[1]}></img>
+                    <Typography variant="body2" color="textPrimary" component="p">{this.props.pet.breeds.breed.$t}</Typography>
+                    <Typography variant="body2" color="textPrimary" component="p"> {this.props.pet.description.$t} </Typography>
                 </Card>
 
             </div>

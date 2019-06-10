@@ -43,12 +43,12 @@ export default class Login extends Component {
 
         console.log(authenticated)
         // authenticated is not getting the updated props. thats why is throwing an arror.and it's also undefined.
-        // sessionStorage.setItem(
-        //     "userId",
-        //     authenticated.id)
+        sessionStorage.setItem(
+            "userId",
+            authenticated.id)
 
         if (authenticated === undefined) {
-            alert("Please re-renter a valid username and email or sign up below!")
+            alert("Please re-renter a valid email and password or sign up below!")
             //if the user is not registered direct them to the registeration page.
             this.props.history.push("/register")
         } else {

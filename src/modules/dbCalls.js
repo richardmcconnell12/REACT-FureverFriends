@@ -1,57 +1,43 @@
 const remoteURL = "http://localhost:5002"
-const usersURL = `${remoteURL}/users`
+const apiURL = "http://api.petfinder.com"
+const apiKey = "63e9b58195bd675faaaabb6808eabdb5"
 
-export default Object.create(null, {
-    get: {
-        value: function (URL, id) {
-            return fetch(`${URL}/${id}`).then(e => e.json())
-        }
+export default {
+
+    // LOCAL DATABASE CALLS
+    get(id) {
+        return fetch(`${remoteURL}/${id}`).then(e => e.json())
     },
 
-    all: {
-        value: function (URL) {
-            console.log("url", URL)
-            return fetch(`${URL}`).then(e => e.json())
-        }
+    getUsers(sessionId) {
+        return fetch(`${remoteURL}/users?userId=${sessionId}`).then(e => e.json());
     },
 
-    post: {
-        value: function (newObj, URL) {
-            return fetch(`${URL}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newObj)
-            }).then(data => data.json())
-        }
+    getAllUsers() {
+        return fetch(`${remoteURL}/users`).then(e => e.json());
     },
 
-    getOnePet() {
-        return fetch("http://api.petfinder.com/pet.get?format=json&key=63e9b58195bd675faaaabb6808eabdb5&id=24844854")
+    postUser(newUser) {
+        return fetch(`${remoteURL}/users`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newUser)
+        }).then(data => data.json())
+    },
+
+    // API FETCH CALLS
+    getOnePet(id) {
+        return fetch(`${apiURL}/pet.get?format=json&key=${apiKey}&id=${id}`)
             .then(e => e.json())
     },
 
-    getUsers: {
-        value: function (sessionId) {
-            return fetch(`http://localhost:5002/users?userId=${sessionId}`).then(e => e.json());
-        }
-    },
-
-    getAllUsers: {
-        value: function () {
-            return fetch(`${remoteURL}/users`).then(e => e.json());
-        },
-        postUser: {
-            value: function (newUser) {
-                return fetch(`${remoteURL}/users`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(newUser)
-                }).then(data => data.json())
-            }
-        }
+    getAllPets() {
+        return fetch(`${apiURL}/pet.find?format=json&key=${apiKey}&animal=dog&location=37011`)
+            .then(e => e.json())
+            .then(pets => pets.petfinder.pets.pet)
     }
-})
+
+
+}
