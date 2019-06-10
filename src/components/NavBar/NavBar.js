@@ -90,7 +90,7 @@ function NavBar() {
                                 <Link color="primary" variant="body1" className="nav-link" to="/pet-interested">Interested List</Link>
                             </li>
                             <li className="nav-item">
-                                <Link color="primary" variant="body1" className="nav-link" to="/logout">Log Out</Link>
+                                <Link color="primary" variant="body1" className="nav-link" to="/login">Log Out</Link>
                             </li>
                         </ul>
                     </div>
