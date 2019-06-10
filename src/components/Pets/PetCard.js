@@ -12,7 +12,7 @@ export default class PetCard extends Component {
 
                 <Card className="card-body">
                     <CardContent> <h3>{this.props.pet.name.$t} </h3></CardContent>
-                    <img src={this.props.pet.media.photos.photo[1]}></img>
+                    <img src={this.props.pet.media.photos.photo[0].$t}></img>
                     <Typography variant="body2" color="textPrimary" component="p">{this.props.pet.breeds.breed.$t}</Typography>
                     <Typography variant="body2" color="textPrimary" component="p"> {this.props.pet.description.$t} </Typography>
                 </Card>

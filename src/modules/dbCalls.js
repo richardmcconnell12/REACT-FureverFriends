@@ -5,11 +5,7 @@ const apiKey = "63e9b58195bd675faaaabb6808eabdb5"
 export default {
 
     // LOCAL DATABASE CALLS
-    get(id) {
-        return fetch(`${remoteURL}/${id}`).then(e => e.json())
-    },
-
-    getUsers(sessionId) {
+    getUser(sessionId) {
         return fetch(`${remoteURL}/users?userId=${sessionId}`).then(e => e.json());
     },
 

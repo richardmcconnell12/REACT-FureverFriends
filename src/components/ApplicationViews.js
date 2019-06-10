@@ -18,14 +18,13 @@ export default class ApplicationViews extends Component {
     }
 
 
-    updateComponent = () => {
-
-        dbCalls.getUsers().then(allUsers => {
-            this.setState({ users: allUsers });
-            console.log(allUsers)
-            // add users here
-        })
-    }
+    // updateComponent = () => {
+    //     dbCalls.getUsers().then(allUsers => {
+    //         this.setState({ users: allUsers });
+    //         console.log(allUsers)
+    //         // add users here
+    //     })
+    // }
     addUser = (user) => dbCalls.post(user, usersURL)
         .then(() => dbCalls.all(usersURL))
         .then(Allusers => this.setState({
@@ -36,13 +35,14 @@ export default class ApplicationViews extends Component {
         // console.log("didmount fired up")
         dbCalls.getAllPets()
             .then((pets) => this.setState({ pets }))
-        // .then(() => fetch(`http://localhost:5002/petInterested`).then(r => r.json()))
-        // .then(petInterested => (newState.petInterested = petInterested))
-        // .then(() => fetch(`http://localhost:5002/users`).then(r => r.json()))
-        // .then(users => (newState.users = users))
+            // .then(() => fetch(`http://localhost:5002/petInterested`).then(r => r.json()))
+            // .then(petInterested => (newState.petInterested = petInterested))
+            .then(() => dbCalls.getAllUsers())
+            .then(users => this.setState({ users }))
     }
 
     render() {
+        console.log("appviewusers", this.state.users)
         return (
             <React.Fragment>
                 <Route path="/login" render={(props) => {
