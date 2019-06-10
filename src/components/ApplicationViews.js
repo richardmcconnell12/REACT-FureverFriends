@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import PetList from './Pets/PetList'
-import PetInterest from './Pets/PetInterest'
+// import PetInterest from './Pets/PetInterest'
 import dbCalls from '../modules/dbCalls'
 import Login from './Authorization/Login'
 import Register from './Authorization/Register'
@@ -12,40 +12,19 @@ export default class ApplicationViews extends Component {
 
     state = {
         pets: [],
+        interestedPet: [],
         users: [],
         sessionId: sessionStorage.getItem("userId")
     }
 
-    // getUserData() {
-    //     console.log("didmount fired up")
-    //     const newState = {};
-    //     let sessionId = sessionStorage.getItem("userId")
-    //     dbCalls
-    //         .all(`http://localhost:5002/petInterested?userId=${sessionId}`)
-    //         .then(petInterested => (newState.petInterested = petInterested))
-    //         .then(() => fetch(`http://localhost:5002/pets?userId=${sessionId}`).then(r => r.json()))
-    //         .then(pets => (newState.pets = pets))
-    //         .then(() => fetch(`http://localhost:5002/users?userId=${sessionId}`).then(r => r.json()))
-    //         .then(users => (newState.users = users))
-    //         .then(() => this.setState(newState))
+
+    // updateComponent = () => {
+    //     dbCalls.getUsers().then(allUsers => {
+    //         this.setState({ users: allUsers });
+    //         console.log(allUsers)
+    //         // add users here
+    //     })
     // }
-    // componentDidMount() {
-    //     dbCalls.getOnePet()
-    //         .then(pets =>
-    //             this.setState({
-    //                 pets: pets
-    //             }));
-    // }
-
-
-    updateComponent = () => {
-
-        dbCalls.getUsers().then(allUsers => {
-            this.setState({ users: allUsers });
-            console.log(allUsers)
-            // add users here
-        })
-    }
     addUser = (user) => dbCalls.post(user, usersURL)
         .then(() => dbCalls.all(usersURL))
         .then(Allusers => this.setState({
@@ -53,20 +32,17 @@ export default class ApplicationViews extends Component {
         }))
 
     componentDidMount() {
-        console.log("didmount fired up")
-        const newState = {};
-        let sessionId = sessionStorage.getItem("userId")
-        dbCalls
-            .all(`http://localhost:5002/pets?${sessionId}`)
-            .then(pets => (newState.pets = pets))
-            .then(() => fetch(`http://localhost:5002/petInterested?${sessionId}`).then(r => r.json()))
-            .then(petInterested => (newState.petInterested = petInterested))
-            .then(() => fetch(`http://localhost:5002/users?${sessionId}`).then(r => r.json()))
-            .then(users => (newState.users = users))
-            .then(() => this.setState(newState))
+        // console.log("didmount fired up")
+        dbCalls.getAllPets()
+            .then((pets) => this.setState({ pets }))
+            // .then(() => fetch(`http://localhost:5002/petInterested`).then(r => r.json()))
+            // .then(petInterested => (newState.petInterested = petInterested))
+            .then(() => dbCalls.getAllUsers())
+            .then(users => this.setState({ users }))
     }
 
     render() {
+        console.log("appviewusers", this.state.users)
         return (
             <React.Fragment>
                 <Route path="/login" render={(props) => {

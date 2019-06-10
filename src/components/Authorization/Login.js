@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./Login.css"
 import fureverFriendsLogo from "../../Images/fureverFriends.svg"
 import { Link } from "react-router-dom"
+import dbCalls from "../../modules/dbCalls"
 
 
 
@@ -34,21 +35,20 @@ export default class Login extends Component {
 
         let currentUser = sessionStorage.getItem("email")
         //we get the current user from the session storage.
-        console.log(this.props.users)
+        console.log("user", this.props.users)
         console.log(this.state)
+        // dbCalls.getUser(this.)
         let authenticated = this.props.users.find(user =>   //The find() method returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
             user.email === this.state.email)
+        console.log("auth", authenticated)
+
         console.log(currentUser)
         console.log(this.props.users)
 
-        console.log(authenticated)
         // authenticated is not getting the updated props. thats why is throwing an arror.and it's also undefined.
-        // sessionStorage.setItem(
-        //     "userId",
-        //     authenticated.id)
 
         if (authenticated === undefined) {
-            alert("Please re-renter a valid username and email or sign up below!")
+            alert("Please re-renter a valid email and password or sign up below!")
             //if the user is not registered direct them to the registeration page.
             this.props.history.push("/register")
         } else {
@@ -57,8 +57,8 @@ export default class Login extends Component {
                 authenticated.id)
 
             // UPDATING THE COMPONENT WITHOUT REFRESHING THE PAGE
-            this.props.updateComponent()
-            // Taking user to idea page
+            // this.props.updateComponent()
+            // Taking user to pet page
             this.props.history.push("/pets")
 
         }
