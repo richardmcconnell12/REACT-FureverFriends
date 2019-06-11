@@ -17,14 +17,6 @@ export default class ApplicationViews extends Component {
         sessionId: sessionStorage.getItem("userId")
     }
 
-
-    // updateComponent = () => {
-    //     dbCalls.getUsers().then(allUsers => {
-    //         this.setState({ users: allUsers });
-    //         console.log(allUsers)
-    //         // add users here
-    //     })
-    // }
     addUser = (user) => dbCalls.post(user, usersURL)
         .then(() => dbCalls.all(usersURL))
         .then(Allusers => this.setState({
@@ -32,7 +24,6 @@ export default class ApplicationViews extends Component {
         }))
 
     componentDidMount() {
-        // console.log("didmount fired up")
         dbCalls.getAllPets()
             .then((pets) => this.setState({ pets }))
             // .then(() => fetch(`http://localhost:5002/petInterested`).then(r => r.json()))
@@ -42,7 +33,6 @@ export default class ApplicationViews extends Component {
     }
 
     render() {
-        console.log("appviewusers", this.state.users)
         return (
             <React.Fragment>
                 <Route path="/login" render={(props) => {
