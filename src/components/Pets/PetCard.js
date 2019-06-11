@@ -18,7 +18,7 @@ export default class PetCard extends Component {
                     <button type="button"
                         className="btn-interested"
                         onClick={() => {
-                            this.props.addInterestedPet(this.props.pet.id.$t)
+                            this.props.addInterestedPet(this.props.pet.id)
                         }}>
                         Interested!
                     </button>

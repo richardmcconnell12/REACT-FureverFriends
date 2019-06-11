@@ -13,6 +13,7 @@ class PetList extends Component {
                     {
                         this.props.pets.map(pet => {
                             return <PetCard key={pet.id.$t} pet={pet}
+                                addInterestedPet={this.props.addInterestedPet}
                             />
                         })
                     }

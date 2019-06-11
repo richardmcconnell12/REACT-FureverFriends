@@ -12,7 +12,6 @@ export default class ApplicationViews extends Component {
 
     state = {
         pets: [],
-        interestedPet: [],
         users: [],
         sessionId: sessionStorage.getItem("userId")
     }
@@ -27,17 +26,19 @@ export default class ApplicationViews extends Component {
         dbCalls.getAllPets()
             .then((pets) => this.setState({ pets }))
             .then(() => dbCalls.getInterestedPets())
-            .then((interestedPet) => this.setState({ interestedPet }))
+            .then((userInterested) => this.setState({ userInterested }))
             .then(() => dbCalls.getAllUsers())
             .then(users => this.setState({ users }))
     }
 
-    addInterestedPet() {
-        dbCalls.postInterestedPet()
+    addInterestedPet(petsId) {
+        // debugger
+        const interestedPet = {
+            userId: parseInt(sessionStorage.getItem("userId")),
+            petId: petsId.$t
+        }
+        dbCalls.postInterestedPet(interestedPet)
             .then(() => dbCalls.getInterestedPets())
-            .then(interestedPet => {
-                this.setState({ interestedPet: interestedPet })
-            })
     }
 
     render() {
@@ -57,11 +58,12 @@ export default class ApplicationViews extends Component {
 
                 <Route exact path="/pets" render={(props) => {
                     return <PetList pets={this.state.pets} {...props}
-                        addInterestedPet={this.addInterestedPet} />
+                        addInterestedPet={this.addInterestedPet}
+                    />
                 }} />
 
                 <Route path="/pet-interested" render={(props) => {
-                    return <PetInterest interestedPet={this.state.interestedPet} {...props} />
+                    return <PetInterest interestedPets={this.state.userInterested} {...props} />
                 }} />
             </React.Fragment>
         )

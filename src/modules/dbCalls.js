@@ -24,7 +24,7 @@ export default {
     },
 
     postInterestedPet(interestedPet) {
-        return fetch(`${remoteURL}/petInterested`, {
+        return fetch(`${remoteURL}/userInterested`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,8 +33,12 @@ export default {
         })
     },
 
-    getInterestedPets() {
-        return fetch(`${remoteURL}/petInterested`).then(e => e.json())
+    getInterestedPets(userId) {
+        return fetch(`${remoteURL}/userInterested?userId=${userId}`)
+            .then(e => e.json())
+            .then(pets => pets.forEach(pet => {
+                this.getOnePet(pet.petId)
+            }))
     },
 
     // API FETCH CALLS
