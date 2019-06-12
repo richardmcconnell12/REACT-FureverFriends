@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import PetList from './Pets/PetList'
-// import PetInterest from './Pets/PetInterest'
+import PetInterest from './Pets/PetInterest'
 import dbCalls from '../modules/dbCalls'
 import Login from './Authorization/Login'
 import Register from './Authorization/Register'
@@ -12,19 +12,10 @@ export default class ApplicationViews extends Component {
 
     state = {
         pets: [],
-        interestedPet: [],
         users: [],
         sessionId: sessionStorage.getItem("userId")
     }
 
-
-    // updateComponent = () => {
-    //     dbCalls.getUsers().then(allUsers => {
-    //         this.setState({ users: allUsers });
-    //         console.log(allUsers)
-    //         // add users here
-    //     })
-    // }
     addUser = (user) => dbCalls.post(user, usersURL)
         .then(() => dbCalls.all(usersURL))
         .then(Allusers => this.setState({
@@ -32,20 +23,27 @@ export default class ApplicationViews extends Component {
         }))
 
     componentDidMount() {
-        // console.log("didmount fired up")
         dbCalls.getAllPets()
             .then((pets) => this.setState({ pets }))
-            // .then(() => fetch(`http://localhost:5002/petInterested`).then(r => r.json()))
-            // .then(petInterested => (newState.petInterested = petInterested))
+            .then(() => dbCalls.getInterestedPets())
+            .then((userInterested) => this.setState({ userInterested }))
             .then(() => dbCalls.getAllUsers())
             .then(users => this.setState({ users }))
     }
 
+    addInterestedPet(petsId) {
+        const interestedPet = {
+            userId: parseInt(sessionStorage.getItem("userId")),
+            petId: petsId.$t
+        }
+        dbCalls.postInterestedPet(interestedPet)
+            .then(() => dbCalls.getInterestedPets())
+    }
+
     render() {
-        console.log("appviewusers", this.state.users)
         return (
             <React.Fragment>
-                <Route path="/login" render={(props) => {
+                <Route exact path="/login" render={(props) => {
                     return <Login {...props}
                         users={this.state.users}
                         updateComponent={this.updateComponent} />
@@ -57,13 +55,16 @@ export default class ApplicationViews extends Component {
                         addUser={this.addUser} />
                 }} />
 
-                <Route exact path="/pets" render={(props) => {
-                    return <PetList pets={this.state.pets} {...props} />
+                <Route path="/pets" render={(props) => {
+                    return <PetList pets={this.state.pets} {...props}
+                        addInterestedPet={this.addInterestedPet}
+                    />
                 }} />
 
-                {/* <Route path="/pet-interested" render={(props) => {
-                    return <PetInterest interestedPet={this.state.interestedPet} {...props} />
-                }} /> */}
+                <Route path="/pet-interested" render={(props) => {
+                    return <PetInterest sessionId={this.state.sessionId} {...props}
+                        getInterestedPets={this.getInterestedPets} />
+                }} />
             </React.Fragment>
         )
     }

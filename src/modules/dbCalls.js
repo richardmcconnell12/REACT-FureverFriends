@@ -23,6 +23,28 @@ export default {
         }).then(data => data.json())
     },
 
+    postInterestedPet(interestedPet) {
+        return fetch(`${remoteURL}/userInterested`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(interestedPet)
+        })
+    },
+
+    getInterestedPets(sessionId) {
+        return fetch(`${remoteURL}/userInterested?sessionId=${sessionId}`)
+            .then(e => e.json())
+            .then(interestedPets => Promise.all(interestedPets.map(pet => {
+                return this.getOnePet(pet.petId)
+            })));
+    },
+
+    getOneInterestedPet(petId) {
+        return fetch(`${remoteURL}/userInterested?petId=${petId}`)
+    },
+
     // API FETCH CALLS
     getOnePet(id) {
         return fetch(`${apiURL}/pet.get?format=json&key=${apiKey}&id=${id}`)
