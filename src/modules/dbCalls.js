@@ -33,12 +33,22 @@ export default {
         })
     },
 
+    removeInterestedPet(id) {
+        return fetch(`${remoteURL}/userInterested/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }).then(e => e.json())
+    },
+
     getInterestedPets(sessionId) {
-        return fetch(`${remoteURL}/userInterested?sessionId=${sessionId}`)
+        return fetch(`${remoteURL}/userInterested?userId=${sessionId}`)
             .then(e => e.json())
-            .then(interestedPets => Promise.all(interestedPets.map(pet => {
-                return this.getOnePet(pet.petId)
-            })));
+        // break it up here
+        // .then(interestedPets => Promise.all(interestedPets.map(pet => {
+        //     return this.getOnePet(pet.petId)
+        // })));
     },
 
     getOneInterestedPet(petId) {

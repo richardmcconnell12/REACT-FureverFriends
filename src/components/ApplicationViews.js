@@ -13,6 +13,7 @@ export default class ApplicationViews extends Component {
     state = {
         pets: [],
         users: [],
+        userInterested: [],
         sessionId: sessionStorage.getItem("userId")
     }
 
@@ -25,22 +26,31 @@ export default class ApplicationViews extends Component {
     componentDidMount() {
         dbCalls.getAllPets()
             .then((pets) => this.setState({ pets }))
-            .then(() => dbCalls.getInterestedPets())
+            .then(() => dbCalls.getInterestedPets(this.state.sessionId))
             .then((userInterested) => this.setState({ userInterested }))
             .then(() => dbCalls.getAllUsers())
             .then(users => this.setState({ users }))
     }
 
-    addInterestedPet(petsId) {
+    addInterestedPet = (petsId) => {
+        console.log("ADDED PET", petsId)
         const interestedPet = {
             userId: parseInt(sessionStorage.getItem("userId")),
             petId: petsId.$t
         }
         dbCalls.postInterestedPet(interestedPet)
-            .then(() => dbCalls.getInterestedPets())
+            .then(() => dbCalls.getInterestedPets(this.state.sessionId))
+            .then(items => this.setState({ userInterested: items }))
+    }
+
+    deleteInterestedPet = (id) => {
+        dbCalls.removeInterestedPet(id)
+            .then(() => dbCalls.getInterestedPets(this.state.sessionId))
+            .then(items => this.setState({ userInterested: items }))
     }
 
     render() {
+        console.log("user interested from app views", this.state.userInterested)
         return (
             <React.Fragment>
                 <Route exact path="/login" render={(props) => {
@@ -63,7 +73,9 @@ export default class ApplicationViews extends Component {
 
                 <Route path="/pet-interested" render={(props) => {
                     return <PetInterest sessionId={this.state.sessionId} {...props}
-                        getInterestedPets={this.getInterestedPets} />
+                        userInterested={this.state.userInterested}
+                        // getInterestedPets={this.getInterestedPets}
+                        deleteInterestedPet={this.deleteInterestedPet} />
                 }} />
             </React.Fragment>
         )
