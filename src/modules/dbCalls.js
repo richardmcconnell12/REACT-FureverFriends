@@ -33,12 +33,16 @@ export default {
         })
     },
 
-    getInterestedPets(userId) {
-        return fetch(`${remoteURL}/userInterested?userId=${userId}`)
+    getInterestedPets(sessionId) {
+        return fetch(`${remoteURL}/userInterested?sessionId=${sessionId}`)
             .then(e => e.json())
-            .then(pets => pets.forEach(pet => {
-                this.getOnePet(pet.petId)
-            }))
+            .then(interestedPets => Promise.all(interestedPets.map(pet => {
+                return this.getOnePet(pet.petId)
+            })));
+    },
+
+    getOneInterestedPet(petId) {
+        return fetch(`${remoteURL}/userInterested?petId=${petId}`)
     },
 
     // API FETCH CALLS

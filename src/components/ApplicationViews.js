@@ -32,7 +32,6 @@ export default class ApplicationViews extends Component {
     }
 
     addInterestedPet(petsId) {
-        // debugger
         const interestedPet = {
             userId: parseInt(sessionStorage.getItem("userId")),
             petId: petsId.$t
@@ -44,7 +43,7 @@ export default class ApplicationViews extends Component {
     render() {
         return (
             <React.Fragment>
-                <Route path="/login" render={(props) => {
+                <Route exact path="/login" render={(props) => {
                     return <Login {...props}
                         users={this.state.users}
                         updateComponent={this.updateComponent} />
@@ -56,14 +55,15 @@ export default class ApplicationViews extends Component {
                         addUser={this.addUser} />
                 }} />
 
-                <Route exact path="/pets" render={(props) => {
+                <Route path="/pets" render={(props) => {
                     return <PetList pets={this.state.pets} {...props}
                         addInterestedPet={this.addInterestedPet}
                     />
                 }} />
 
                 <Route path="/pet-interested" render={(props) => {
-                    return <PetInterest interestedPets={this.state.userInterested} {...props} />
+                    return <PetInterest sessionId={this.state.sessionId} {...props}
+                        getInterestedPets={this.getInterestedPets} />
                 }} />
             </React.Fragment>
         )

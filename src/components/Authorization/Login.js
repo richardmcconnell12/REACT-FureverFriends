@@ -32,7 +32,7 @@ export default class Login extends Component {
             "email",
             this.state.email)
 
-        let currentUser = sessionStorage.getItem("email")
+        // let currentUser = sessionStorage.getItem("email")
         //we get the current user from the session storage.
         let authenticated = this.props.users.find(user =>   //The find() method returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
             user.email === this.state.email)
