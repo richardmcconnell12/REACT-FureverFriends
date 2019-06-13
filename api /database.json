@@ -14,18 +14,19 @@
   "userInterested": [
     {
       "userId": 1,
+      "petId": "41122861",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "petId": "44378882",
+      "id": 2
+    },
+    {
+      "userId": 1,
       "petId": "44863505",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "petId": "44378883",
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "petId": "44868338",
-      "id": 8
+      "id": 3
     }
-  ]
+  ],
+  "notes": []
 }

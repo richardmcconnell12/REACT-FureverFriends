@@ -10,14 +10,6 @@ export default class PetInterest extends Component {
         // sessionId: sessionStorage.getItem("userId")
     }
 
-    // componentDidMount = () => {
-    //     dbCalls.getInterestedPets(this.state.sessionId).then(interestedPets => {
-    //         console.log("this guy is interested", this.state.sessionId)
-    //         console.log("in these dogs", interestedPets)
-    //         this.setState({ interestedPets })
-    //     })
-    // }
-
     render() {
 
         return (

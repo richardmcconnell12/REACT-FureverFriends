@@ -33,7 +33,6 @@ export default class ApplicationViews extends Component {
     }
 
     addInterestedPet = (petsId) => {
-        console.log("ADDED PET", petsId)
         const interestedPet = {
             userId: parseInt(sessionStorage.getItem("userId")),
             petId: petsId.$t
@@ -50,7 +49,6 @@ export default class ApplicationViews extends Component {
     }
 
     render() {
-        console.log("user interested from app views", this.state.userInterested)
         return (
             <React.Fragment>
                 <Route exact path="/login" render={(props) => {
@@ -74,7 +72,6 @@ export default class ApplicationViews extends Component {
                 <Route path="/pet-interested" render={(props) => {
                     return <PetInterest sessionId={this.state.sessionId} {...props}
                         userInterested={this.state.userInterested}
-                        // getInterestedPets={this.getInterestedPets}
                         deleteInterestedPet={this.deleteInterestedPet} />
                 }} />
             </React.Fragment>
