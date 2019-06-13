@@ -7,7 +7,6 @@ import "./Pet.css"
 class PetList extends Component {
 
     render() {
-        console.log("this.props.pets", this.props.pets)
         return (
             <React.Fragment>
                 <Card className="pets">
