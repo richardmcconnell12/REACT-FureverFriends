@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import PetList from './Pets/PetList'
 import PetInterest from './Pets/PetInterest'
+// import InterestedNotesModal from './Notes/InterestedNotesModal'
 import dbCalls from '../modules/dbCalls'
 import Login from './Authorization/Login'
 import Register from './Authorization/Register'
@@ -14,6 +15,7 @@ export default class ApplicationViews extends Component {
         pets: [],
         users: [],
         userInterested: [],
+        notes: [],
         sessionId: sessionStorage.getItem("userId")
     }
 
@@ -72,7 +74,8 @@ export default class ApplicationViews extends Component {
                 <Route path="/pet-interested" render={(props) => {
                     return <PetInterest sessionId={this.state.sessionId} {...props}
                         userInterested={this.state.userInterested}
-                        deleteInterestedPet={this.deleteInterestedPet} />
+                        deleteInterestedPet={this.deleteInterestedPet}
+                        postNote={this.props.addNotes} />
                 }} />
             </React.Fragment>
         )

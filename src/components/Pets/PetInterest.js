@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PetInterestCard from './PetInterestCard'
 import Card from '@material-ui/core/Card';
-import dbCalls from '../../modules/dbCalls'
+// import dbCalls from '../../modules/dbCalls'
 
 export default class PetInterest extends Component {
 

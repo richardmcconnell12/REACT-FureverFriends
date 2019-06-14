@@ -10,12 +10,14 @@ export default class PetInterestCard extends Component {
 
     state = {
         // myPet: {}
-        modalVis: false
+        modalVis: false,
+        notes: []
     }
 
     componentDidMount() {
         dbCalls.getOnePet(this.props.interestedPet.petId)
             .then(result => this.setState({ myPet: result.petfinder.pet }))
+        // .then(() => dbCalls.addNotes({ notes: this.addNotes }))
 
     }
 
@@ -52,7 +54,7 @@ export default class PetInterestCard extends Component {
                         </button>
                     </Card>
 
-                    {this.state.modalVis ? <InterestedNotesModal modalVis={this.state.modalVis} close={this.closeModalVis} /> : null}
+                    {this.state.modalVis ? <InterestedNotesModal modalVis={this.state.modalVis} close={this.closeModalVis} interestedPet={this.props.interestedPet} /> : null}
                 </React.Fragment>
             )
         } else {

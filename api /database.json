@@ -13,20 +13,43 @@
   ],
   "userInterested": [
     {
+      "userId": 2,
+      "petId": "44664413",
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "petId": "42906148",
+      "id": 4
+    },
+    {
       "userId": 1,
-      "petId": "41122861",
-      "id": 1
+      "petId": "44378883",
+      "id": 5
     },
     {
       "userId": 1,
       "petId": "44378882",
-      "id": 2
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "petId": "42906148",
+      "id": 7
     },
     {
       "userId": 1,
       "petId": "44863505",
-      "id": 3
+      "id": 8
     }
   ],
-  "notes": []
+  "notes": [
+    {
+      "userId": 1,
+      "petId": "44378883",
+      "notes": "asd",
+      "date": "Jun 14, 2019, 11:29:26 AM",
+      "id": 1
+    }
+  ]
 }

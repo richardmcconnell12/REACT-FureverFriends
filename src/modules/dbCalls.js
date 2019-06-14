@@ -55,6 +55,21 @@ export default {
         return fetch(`${remoteURL}/userInterested?petId=${petId}`)
     },
 
+    postNote(newNoteObj) {
+        return fetch(`${remoteURL}/notes`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newNoteObj)
+        })
+    },
+
+    getAllNotes(sessionId) {
+        return fetch(`${remoteURL}/notes?userId=${sessionId}`)
+            .then(e => e.json())
+    },
+
     // API FETCH CALLS
     getOnePet(id) {
         return fetch(`${apiURL}/pet.get?format=json&key=${apiKey}&id=${id}`)
