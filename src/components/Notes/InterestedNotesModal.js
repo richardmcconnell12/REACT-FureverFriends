@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { DialogContent, DialogActions, Dialog, DialogTitle, Button, TextField } from '@material-ui/core';
+import dbCalls from '../../modules/dbCalls';
 
 export default class InterestedNotesModal extends Component {
 
@@ -19,13 +20,13 @@ export default class InterestedNotesModal extends Component {
 
         const notesObj = {
             userId: parseInt(sessionStorage.getItem("userId")),
-            petId: this.props.petsId.$t,
+            petId: this.props.interestedPet.petId,
             notes: this.state.notes,
             date: dateTime
         }
-
-        this.props.create(notesObj)
-        this.props.hideModal()
+        console.log("note", notesObj)
+        dbCalls.postNote(notesObj)
+        this.props.close()
     }
 
     handleChange = (e) => {
@@ -40,13 +41,14 @@ export default class InterestedNotesModal extends Component {
             <Dialog
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
+                maxWidth="sm" fullWidth
                 open={this.props.modalVis}
                 onBackdropClick={this.props.close}
             >
 
                 <DialogTitle>Add Notes</DialogTitle>
                 <DialogContent>
-                    <TextField margin="normal" id="notes" label="Add notes" type="text" variant="outlined" onChange={this.handleChange} fullWidth />
+                    <TextField margin="normal" id="notes" label="Add notes" type="text" multiline variant="outlined" onChange={this.handleChange} fullWidth />
                 </DialogContent>
 
                 <DialogActions>
