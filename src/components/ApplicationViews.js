@@ -32,6 +32,10 @@ export default class ApplicationViews extends Component {
             .then((userInterested) => this.setState({ userInterested }))
             .then(() => dbCalls.getAllUsers())
             .then(users => this.setState({ users }))
+            .then(() => dbCalls.getAllNotes(this.state.sessionId))
+            .then((notes) => this.setState({ notes }))
+
+
     }
 
     addInterestedPet = (petsId) => {
@@ -49,6 +53,11 @@ export default class ApplicationViews extends Component {
             .then(() => dbCalls.getInterestedPets(this.state.sessionId))
             .then(items => this.setState({ userInterested: items }))
     }
+
+    updateNotes = async () => {
+        this.setState({ notes: await dbCalls.getAllNotes(this.state.sessionId) })
+    }
+
 
     render() {
         return (
@@ -75,6 +84,8 @@ export default class ApplicationViews extends Component {
                     return <PetInterest sessionId={this.state.sessionId} {...props}
                         userInterested={this.state.userInterested}
                         deleteInterestedPet={this.deleteInterestedPet}
+                        notes={this.state.notes}
+                        updateNotes={this.updateNotes}
                         postNote={this.props.addNotes} />
                 }} />
             </React.Fragment>

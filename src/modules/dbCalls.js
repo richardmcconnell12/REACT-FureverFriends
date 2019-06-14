@@ -65,8 +65,22 @@ export default {
         })
     },
 
+    deleteNote(id) {
+        return fetch(`${remoteURL}/notes?notes=${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+    },
+
     getAllNotes(sessionId) {
         return fetch(`${remoteURL}/notes?userId=${sessionId}`)
+            .then(e => e.json())
+    },
+
+    getOneNote(id) {
+        return fetch(`${remoteURL}/notes?notes=${id}`)
             .then(e => e.json())
     },
 

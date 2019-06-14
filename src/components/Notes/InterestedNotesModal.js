@@ -21,11 +21,13 @@ export default class InterestedNotesModal extends Component {
         const notesObj = {
             userId: parseInt(sessionStorage.getItem("userId")),
             petId: this.props.interestedPet.petId,
-            notes: this.state.notes,
+            note: this.state.notes,
             date: dateTime
         }
         console.log("note", notesObj)
-        dbCalls.postNote(notesObj)
+        dbCalls.postNote(notesObj).then(this.props.updateNotes)
+        // .then(() => dbCalls.getAllNotes(this.props.notes)
+        // .then(items => this.setState({ notes: items })))
         this.props.close()
     }
 
@@ -34,6 +36,7 @@ export default class InterestedNotesModal extends Component {
         stateToChange[e.target.id] = e.target.value
         this.setState(stateToChange)
     }
+
 
     render() {
         return (
