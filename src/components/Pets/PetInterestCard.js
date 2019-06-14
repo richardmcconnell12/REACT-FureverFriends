@@ -9,15 +9,16 @@ import "./Pet.css"
 export default class PetInterestCard extends Component {
 
     state = {
-        // myPet: {}
-        modalVis: false,
-        notes: []
+        myPet: {},
+        modalVis: false
+        // notes: []
     }
 
     componentDidMount() {
         dbCalls.getOnePet(this.props.interestedPet.petId)
             .then(result => this.setState({ myPet: result.petfinder.pet }))
-        // .then(() => dbCalls.addNotes({ notes: this.addNotes }))
+        //     .then(() => dbCalls.getAllNotes(this.props.notes))
+        //     .then(notes => this.setState({ notes: notes }))
 
     }
 
@@ -31,7 +32,7 @@ export default class PetInterestCard extends Component {
 
     render() {
         // const myPet = this.props.interestedPet.petfinder.pet;
-        if (this.state.myPet) {
+        if ("age" in this.state.myPet) {
             return (
                 <React.Fragment>
                     <Card className="card-body">
@@ -52,10 +53,15 @@ export default class PetInterestCard extends Component {
                             }>
                             Add a note!
                         </button>
+                        <Typography variant="body2" color="textPrimary" component="p">{this.props.notes
+                            .filter(note => note.petId === this.props.interestedPet.petId)
+                            .map(note =>
+                                note.note
+                            )}</Typography>
                     </Card>
 
-                    {this.state.modalVis ? <InterestedNotesModal modalVis={this.state.modalVis} close={this.closeModalVis} interestedPet={this.props.interestedPet} /> : null}
-                </React.Fragment>
+                    {this.state.modalVis ? <InterestedNotesModal modalVis={this.state.modalVis} close={this.closeModalVis} interestedPet={this.props.interestedPet} notes={this.state.notes} updateNotes={this.props.updateNotes} /> : null}
+                </React.Fragment >
             )
         } else {
             return (

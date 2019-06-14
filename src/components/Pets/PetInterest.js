@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PetInterestCard from './PetInterestCard'
 import Card from '@material-ui/core/Card';
+import dbCalls from '../../modules/dbCalls'
 // import dbCalls from '../../modules/dbCalls'
 
 export default class PetInterest extends Component {
@@ -8,6 +9,12 @@ export default class PetInterest extends Component {
     state = {
         // interestedPets: [],
         // sessionId: sessionStorage.getItem("userId")
+
+    }
+
+    componentDidMount() {
+        dbCalls.getAllNotes()
+            .then((notes) => this.setState({ notes }))
     }
 
     render() {
@@ -20,6 +27,8 @@ export default class PetInterest extends Component {
                             this.props.userInterested.map(intPet => {
                                 return <PetInterestCard key={intPet.petId} interestedPet={intPet}
                                     deleteInterestedPet={this.props.deleteInterestedPet}
+                                    updateNotes={this.props.updateNotes}
+                                    notes={this.props.notes}
                                 />
                             })
                         }
