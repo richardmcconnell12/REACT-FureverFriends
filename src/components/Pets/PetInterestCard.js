@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import InterestedNotesModal from '../Notes/InterestedNotesModal'
 import dbCalls from "../../modules/dbCalls"
+import NotesItem from "../Notes/NoteItem";
 import "./Pet.css"
 
 export default class PetInterestCard extends Component {
@@ -17,8 +18,8 @@ export default class PetInterestCard extends Component {
     componentDidMount() {
         dbCalls.getOnePet(this.props.interestedPet.petId)
             .then(result => this.setState({ myPet: result.petfinder.pet }))
-        //     .then(() => dbCalls.getAllNotes(this.props.notes))
-        //     .then(notes => this.setState({ notes: notes }))
+        // .then(() => dbCalls.getAllNotes(this.props.notes))
+        // .then(notes => this.setState({ notes: notes }))
 
     }
 
@@ -33,6 +34,7 @@ export default class PetInterestCard extends Component {
     render() {
         // const myPet = this.props.interestedPet.petfinder.pet;
         if ("age" in this.state.myPet) {
+            console.log("notes work here", this.props.notes)
             return (
                 <React.Fragment>
                     <Card className="card-body">
@@ -52,12 +54,8 @@ export default class PetInterestCard extends Component {
                                 this.changeModalVis
                             }>
                             Add a note!
-                        </button>
-                        <Typography variant="body2" color="textPrimary" component="p">{this.props.notes
-                            .filter(note => note.petId === this.props.interestedPet.petId)
-                            .map(note =>
-                                note.note
-                            )}</Typography>
+                            </button>
+                        <NotesItem interestedPet={this.props.interestedPet} notes={this.props.notes}></NotesItem>
                     </Card>
 
                     {this.state.modalVis ? <InterestedNotesModal modalVis={this.state.modalVis} close={this.closeModalVis} interestedPet={this.props.interestedPet} notes={this.state.notes} updateNotes={this.props.updateNotes} /> : null}
