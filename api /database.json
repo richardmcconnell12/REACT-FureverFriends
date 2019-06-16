@@ -29,25 +29,15 @@
     },
     {
       "userId": 1,
-      "petId": "44378882",
+      "petId": "41122861",
       "id": 6
-    },
-    {
-      "userId": 1,
-      "petId": "42906148",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "petId": "44863505",
-      "id": 8
     }
   ],
   "notes": [
     {
       "userId": 1,
       "petId": "44378883",
-      "note": "Damn, please work",
+      "note": "It's working",
       "date": "Jun 14, 2019, 3:44:16 PM",
       "id": 1
     }

@@ -65,7 +65,7 @@ export default {
         })
     },
 
-    deleteNote(id) {
+    removeNote(id) {
         return fetch(`${remoteURL}/notes?notes=${id}`, {
             method: "DELETE",
             headers: {

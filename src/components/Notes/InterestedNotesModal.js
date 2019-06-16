@@ -27,7 +27,7 @@ export default class InterestedNotesModal extends Component {
         console.log("note", notesObj)
         dbCalls.postNote(notesObj).then(this.props.updateNotes)
         // .then(() => dbCalls.getAllNotes(this.props.notes)
-        // .then(items => this.setState({ notes: items })))
+        //     .then(items => this.setState({ notes: items })))
         this.props.close()
     }
 

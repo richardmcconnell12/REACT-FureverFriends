@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import PetList from './Pets/PetList'
 import PetInterest from './Pets/PetInterest'
-// import InterestedNotesModal from './Notes/InterestedNotesModal'
 import dbCalls from '../modules/dbCalls'
 import Login from './Authorization/Login'
 import Register from './Authorization/Register'
@@ -56,6 +55,12 @@ export default class ApplicationViews extends Component {
 
     updateNotes = async () => {
         this.setState({ notes: await dbCalls.getAllNotes(this.state.sessionId) })
+    }
+
+    deleteNote = (id) => {
+        dbCalls.removeNote(id)
+            .then(() => dbCalls.getAllNotes(this.state.notes))
+            .then(reply => this.setState({ notes: reply}))
     }
 
 
