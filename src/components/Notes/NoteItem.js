@@ -16,9 +16,9 @@ export default class NotesItem extends Component {
 
 
     render() {
-        console.log("notes note note", this.props.notes)
+        console.log("NOTES", this.props.notes)
         return (
-            <div className="pet-notes">
+            <div key={this.props.notes.id}>
                 <Typography variant="body2" color="textPrimary" component="p">{this.props.notes
                     .filter(note => note.petId === this.props.interestedPet.petId)
                     .map(note =>
@@ -33,8 +33,7 @@ export default class NotesItem extends Component {
                 </button>
                 <button type="button"
                     className="delete-note"
-                // // onClick={
-                // //     this.changeModalVis
+                    onClick={this.props.deleteNote}
                 >
                     Delete note
                 </button>

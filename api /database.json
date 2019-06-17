@@ -26,20 +26,22 @@
       "userId": 1,
       "petId": "44378883",
       "id": 5
-    },
-    {
-      "userId": 1,
-      "petId": "41122861",
-      "id": 6
     }
   ],
   "notes": [
     {
       "userId": 1,
       "petId": "44378883",
-      "note": "It's working",
-      "date": "Jun 14, 2019, 3:44:16 PM",
+      "note": "okay?",
+      "date": "Jun 16, 2019, 5:53:38 PM",
       "id": 1
+    },
+    {
+      "userId": 1,
+      "petId": "44378883",
+      "note": "This one should delete by itself.....",
+      "date": "Jun 16, 2019, 7:31:23 PM",
+      "id": 2
     }
   ]
 }

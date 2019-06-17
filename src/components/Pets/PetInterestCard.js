@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import InterestedNotesModal from '../Notes/InterestedNotesModal'
 import dbCalls from "../../modules/dbCalls"
-import NotesItem from "../Notes/NoteItem";
+import NoteList from "../Notes/NoteList";
 import "./Pet.css"
 
 export default class PetInterestCard extends Component {
@@ -34,7 +34,6 @@ export default class PetInterestCard extends Component {
     render() {
         // const myPet = this.props.interestedPet.petfinder.pet;
         if ("age" in this.state.myPet) {
-            console.log("notes work here", this.props.notes)
             return (
                 <React.Fragment>
                     <Card className="card-body">
@@ -55,7 +54,7 @@ export default class PetInterestCard extends Component {
                             }>
                             Add a note!
                             </button>
-                        <NotesItem interestedPet={this.props.interestedPet} notes={this.props.notes}></NotesItem>
+                        <NoteList interestedPet={this.props.interestedPet} notes={this.props.notes} deleteNote={this.props.deleteNote}></NoteList>
                     </Card>
 
                     {this.state.modalVis ? <InterestedNotesModal modalVis={this.state.modalVis} close={this.closeModalVis} interestedPet={this.props.interestedPet} notes={this.state.notes} updateNotes={this.props.updateNotes} /> : null}

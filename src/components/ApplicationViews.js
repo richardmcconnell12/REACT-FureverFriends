@@ -58,9 +58,10 @@ export default class ApplicationViews extends Component {
     }
 
     deleteNote = (id) => {
+        console.log("DELETE", this.state.notes)
         dbCalls.removeNote(id)
             .then(() => dbCalls.getAllNotes(this.state.notes))
-            .then(reply => this.setState({ notes: reply}))
+            .then(notes => this.setState({ notes: notes }))
     }
 
 
@@ -91,7 +92,8 @@ export default class ApplicationViews extends Component {
                         deleteInterestedPet={this.deleteInterestedPet}
                         notes={this.state.notes}
                         updateNotes={this.updateNotes}
-                        postNote={this.props.addNotes} />
+                        postNote={this.props.addNotes}
+                        deleteNote={this.deleteNote} />
                 }} />
             </React.Fragment>
         )
