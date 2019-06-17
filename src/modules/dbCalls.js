@@ -80,6 +80,16 @@ export default {
             .then(e => e.json())
     },
 
+    patchNote(editedNote) {
+        return fetch(`${remoteURL}/notes/${editedNote.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editedNote)
+        }).then(e => e.json())
+    },
+
     getAllNotesByUserAndPet(sessionId, petId) {
         return fetch(`${remoteURL}/notes?userId=${sessionId}&petId=${petId}`)
             .then(e => e.json())

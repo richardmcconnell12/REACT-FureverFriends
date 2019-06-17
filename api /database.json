@@ -51,13 +51,6 @@
   "notes": [
     {
       "userId": 1,
-      "petId": "44378883",
-      "note": "Good boy",
-      "date": "Jun 17, 2019, 9:49:21 AM",
-      "id": 1
-    },
-    {
-      "userId": 1,
       "petId": "42906148",
       "note": "Potty trained",
       "date": "Jun 17, 2019, 9:55:26 AM",
@@ -80,23 +73,16 @@
     {
       "userId": 1,
       "petId": "44378883",
-      "note": "Is it working?",
-      "date": "Jun 17, 2019, 11:11:55 AM",
+      "note": "Hello",
+      "date": "Jun 17, 2019, 1:49:34 PM",
       "id": 6
     },
     {
       "userId": 1,
       "petId": "44378883",
-      "note": "Hello",
-      "date": "Jun 17, 2019, 11:12:25 AM",
+      "note": "Why though?",
+      "date": "Jun 17, 2019, 3:25:19 PM",
       "id": 7
-    },
-    {
-      "userId": 1,
-      "petId": "44378883",
-      "note": "you need to look this all over",
-      "date": "Jun 17, 2019, 11:14:36 AM",
-      "id": 8
     }
   ]
 }
