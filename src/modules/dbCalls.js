@@ -45,10 +45,6 @@ export default {
     getInterestedPets(sessionId) {
         return fetch(`${remoteURL}/userInterested?userId=${sessionId}`)
             .then(e => e.json())
-        // break it up here
-        // .then(interestedPets => Promise.all(interestedPets.map(pet => {
-        //     return this.getOnePet(pet.petId)
-        // })));
     },
 
     getOneInterestedPet(petId) {
@@ -66,12 +62,12 @@ export default {
     },
 
     removeNote(id) {
-        return fetch(`${remoteURL}/notes?notes=${id}`, {
+        return fetch(`${remoteURL}/notes/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
             }
-        })
+        }).then(e => e.json())
     },
 
     getAllNotes(sessionId) {
@@ -81,6 +77,11 @@ export default {
 
     getOneNote(id) {
         return fetch(`${remoteURL}/notes?notes=${id}`)
+            .then(e => e.json())
+    },
+
+    getAllNotesByUserAndPet(sessionId, petId) {
+        return fetch(`${remoteURL}/notes?userId=${sessionId}&petId=${petId}`)
             .then(e => e.json())
     },
 

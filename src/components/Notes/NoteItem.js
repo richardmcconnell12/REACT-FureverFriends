@@ -4,37 +4,23 @@ import dbCalls from '../../modules/dbCalls'
 import './notes.css'
 
 export default class NotesItem extends Component {
-    state = {
-        notes: this.props.notes
-    }
-
-    componentDidMount() {
-        dbCalls.getAllNotes(this.state.notes)
-            .then(notes => this.setState({ notes: notes }))
-
-    }
-
 
     render() {
-        console.log("notes note note", this.props.notes)
+        console.log("NOTE item", this.props.note)
+        console.log("Note item ID", this.props.note.id)
         return (
-            <div className="pet-notes">
-                <Typography variant="body2" color="textPrimary" component="p">{this.props.notes
-                    .filter(note => note.petId === this.props.interestedPet.petId)
-                    .map(note =>
-                        note.note
-                    )}</Typography>
-                <button type="button"
+            <div key={this.props.note.id}>
+                <Typography variant="body2" color="textPrimary" component="p">{this.props.note.note}</Typography>
+                {/* <button type="button"
                     className="edit-note"
-                // // onClick={
-                // //     this.changeModalVis
-                >
-                    Edit note
-                </button>
+                    onClick={
+                        this.changeModalVis}
+                        >
+                        Edit note
+                </button> */}
                 <button type="button"
                     className="delete-note"
-                // // onClick={
-                // //     this.changeModalVis
+                    onClick={() => this.props.deleteNote(this.props.note.id)}
                 >
                     Delete note
                 </button>
