@@ -19,7 +19,7 @@ export default class EditNotesModal extends Component {
         // let noteId = this.props.id
 
         this.props.patchNote(editedNoteObj)
-        this.props.close()
+        this.props.close("editModalVis")
     }
 
     handleChange = (e) => {
@@ -36,7 +36,11 @@ export default class EditNotesModal extends Component {
                 aria-describedby="simple-modal-description"
                 maxWidth="sm" fullWidth
                 open={this.props.editModalVis}
-                onBackdropClick={this.props.close}
+                onClose={() => {
+                    this.props.close("editModalVis")
+                }}
+
+
             >
 
                 <DialogTitle>Edit Note</DialogTitle>
@@ -45,7 +49,7 @@ export default class EditNotesModal extends Component {
                 </DialogContent>
 
                 <DialogActions>
-                    <Button color="secondary" varient="contained" onClick={this.editNote}>Submit!</Button>
+                    <Button color="secondary" varient="contained" onClick={this.editNote}>Edit</Button>
                     <Button color="secondary" varient="contained" onClick={() => {
                         this.props.close("editModalVis")
                     }}>Close</Button>
