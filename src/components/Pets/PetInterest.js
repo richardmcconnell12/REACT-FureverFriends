@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import PetInterestCard from './PetInterestCard'
 import Card from '@material-ui/core/Card';
-import dbCalls from '../../modules/dbCalls'
-// import dbCalls from '../../modules/dbCalls'
 
 export default class PetInterest extends Component {
 
@@ -11,12 +9,6 @@ export default class PetInterest extends Component {
         // sessionId: sessionStorage.getItem("userId")
         // notes: []
 
-    }
-
-
-    componentDidMount() {
-        // dbCalls.getAllNotesByUserAndPet(this.props.sessionId, this.props.interestedPet.petId)
-        //     .then(notes => this.setState({ notes: notes }))
     }
 
     render() {
@@ -31,8 +23,6 @@ export default class PetInterest extends Component {
                                     sessionId={this.props.sessionId}
                                     deleteInterestedPet={this.props.deleteInterestedPet}
                                     updateNotes={this.props.updateNotes}
-                                // notes={this.state.notes}
-                                // deleteNote={this.props.deleteNote}
                                 />
                             })
                         }

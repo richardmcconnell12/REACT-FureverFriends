@@ -42,7 +42,7 @@ export default class InterestedNotesModal extends Component {
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
                 maxWidth="sm" fullWidth
-                open={this.props.modalVis}
+                open={this.props.addModalVis}
                 onBackdropClick={this.props.close}
             >
 
@@ -53,7 +53,9 @@ export default class InterestedNotesModal extends Component {
 
                 <DialogActions>
                     <Button color="secondary" varient="contained" onClick={this.addNotes}>Submit!</Button>
-                    <Button color="secondary" varient="contained" onClick={this.props.close}>Close</Button>
+                    <Button color="secondary" varient="contained" onClick={() => {
+                        this.props.close("addModalVis")
+                    }}>Close</Button>
                 </DialogActions>
             </Dialog>
         )
