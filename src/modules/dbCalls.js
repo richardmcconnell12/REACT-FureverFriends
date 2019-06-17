@@ -80,6 +80,11 @@ export default {
             .then(e => e.json())
     },
 
+    getAllNotesByUserAndPet(sessionId, petId) {
+        return fetch(`${remoteURL}/notes?userId=${sessionId}&petId=${petId}`)
+            .then(e => e.json())
+    },
+
     // API FETCH CALLS
     getOnePet(id) {
         return fetch(`${apiURL}/pet.get?format=json&key=${apiKey}&id=${id}`)

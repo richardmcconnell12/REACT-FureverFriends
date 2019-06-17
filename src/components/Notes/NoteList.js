@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NoteItem from './NoteItem'
 
 export default class NoteList extends Component {
+
     render() {
         return (
 
@@ -9,11 +10,12 @@ export default class NoteList extends Component {
                 <React.Fragment>
                     {
                         this.props.notes.map(note => {
+                            console.log("note from note list", note.id)
                             return <NoteItem key={note.id} interestedPet={this.props.interestedPet}
                                 deleteInterestedPet={this.props.deleteInterestedPet}
                                 deleteNote={this.props.deleteNote}
                                 updateNotes={this.props.updateNotes}
-                                notes={this.props.notes}
+                                note={note}
                             />
                         })
                     }

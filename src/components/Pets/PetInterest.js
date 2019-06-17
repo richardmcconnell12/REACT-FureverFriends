@@ -9,12 +9,14 @@ export default class PetInterest extends Component {
     state = {
         // interestedPets: [],
         // sessionId: sessionStorage.getItem("userId")
+        // notes: []
 
     }
 
+
     componentDidMount() {
-        dbCalls.getAllNotes()
-            .then((notes) => this.setState({ notes }))
+        // dbCalls.getAllNotesByUserAndPet(this.props.sessionId, this.props.interestedPet.petId)
+        //     .then(notes => this.setState({ notes: notes }))
     }
 
     render() {
@@ -26,10 +28,11 @@ export default class PetInterest extends Component {
                         {
                             this.props.userInterested.map(intPet => {
                                 return <PetInterestCard key={intPet.petId} interestedPet={intPet}
+                                    sessionId={this.props.sessionId}
                                     deleteInterestedPet={this.props.deleteInterestedPet}
                                     updateNotes={this.props.updateNotes}
-                                    deleteNote={this.props.deleteNote}
-                                    notes={this.props.notes}
+                                // notes={this.state.notes}
+                                // deleteNote={this.props.deleteNote}
                                 />
                             })
                         }

@@ -11,15 +11,28 @@ export default class PetInterestCard extends Component {
 
     state = {
         myPet: {},
-        modalVis: false
-        // notes: []
+        modalVis: false,
+        notes: []
     }
+
+    updateNotes = () => {
+        console.log("update notes running")
+        dbCalls.getAllNotesByUserAndPet(this.props.sessionId, this.props.interestedPet.petId)
+            .then(notes => this.setState({ notes: notes }))
+    }
+
+    deleteNote = (id) => {
+        dbCalls.removeNote(id)
+            .then(() => dbCalls.getAllNotesByUserAndPet(this.props.sessionId, this.props.interestedPet.petId))
+            .then(notes => this.setState({ notes: notes }))
+    }
+
 
     componentDidMount() {
         dbCalls.getOnePet(this.props.interestedPet.petId)
             .then(result => this.setState({ myPet: result.petfinder.pet }))
-        // .then(() => dbCalls.getAllNotes(this.props.notes))
-        // .then(notes => this.setState({ notes: notes }))
+            .then(() => dbCalls.getAllNotesByUserAndPet(this.props.sessionId, this.props.interestedPet.petId))
+            .then(notes => this.setState({ notes: notes }))
 
     }
 
@@ -54,10 +67,10 @@ export default class PetInterestCard extends Component {
                             }>
                             Add a note!
                             </button>
-                        <NoteList interestedPet={this.props.interestedPet} notes={this.props.notes} deleteNote={this.props.deleteNote}></NoteList>
+                        <NoteList interestedPet={this.props.interestedPet} notes={this.state.notes} deleteNote={this.deleteNote}></NoteList>
                     </Card>
 
-                    {this.state.modalVis ? <InterestedNotesModal modalVis={this.state.modalVis} close={this.closeModalVis} interestedPet={this.props.interestedPet} notes={this.state.notes} updateNotes={this.props.updateNotes} /> : null}
+                    {this.state.modalVis ? <InterestedNotesModal modalVis={this.state.modalVis} close={this.closeModalVis} interestedPet={this.props.interestedPet} notes={this.props.notes} updateNotes={this.updateNotes} /> : null}
                 </React.Fragment >
             )
         } else {
