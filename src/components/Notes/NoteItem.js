@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography';
+import EditNotesModal from '../Notes/EditNotesModal'
 import './notes.css'
 
 export default class NotesItem extends Component {
+
+    state = {
+        editModalVis: false,
+    }
+
+    closeModalVis = () => this.setState({ editModalVis: false })
 
     render() {
         return (
@@ -11,7 +18,7 @@ export default class NotesItem extends Component {
                 <button type="button"
                     className="edit-note"
                     onClick={() => {
-                        this.props.modalVis("editModalVis")
+                        this.setState({ editModalVis: true })
                     }}
                 >
                     Edit note
@@ -22,6 +29,7 @@ export default class NotesItem extends Component {
                 >
                     Delete note
                 </button>
+                {this.state.editModalVis ? <EditNotesModal editModalVis={this.state.editModalVis} close={this.closeModalVis} interestedPet={this.props.interestedPet} note={this.props.note} updateNotes={this.props.updateNotes} editNote={this.props.editNote} /> : null}
             </div>
 
         )

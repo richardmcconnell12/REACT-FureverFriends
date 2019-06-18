@@ -45,8 +45,7 @@ export default class InterestedNotesModal extends Component {
                 open={this.props.addModalVis}
                 onClose={() => {
                     this.props.close("addModalVis")
-                }}
-            >
+                }}>
 
                 <DialogTitle>Add Notes</DialogTitle>
                 <DialogContent>
