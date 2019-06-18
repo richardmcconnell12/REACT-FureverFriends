@@ -27,12 +27,8 @@ export default class Register extends Component {
             the customer enters into local storage.
         */
         sessionStorage.setItem(
-            "credentials",
-            JSON.stringify({        //The JSON.stringify() method converts a JavaScript object or value to a JSON string, 
-                name: this.state.email,
-                email: this.state.password,
-                // id: this.state.id
-            })
+            "email",
+            JSON.stringify(this.state.email)
         )
     }
 
@@ -40,14 +36,10 @@ export default class Register extends Component {
     constructNewUser = () => {
         const user = {
             email: this.state.email,
-            password: this.state.password,
-            id: this.state.id
+            password: this.state.password
         }
 
-        this.props.addUser(user).then(response => {
-            console.log(response)
-            this.props.history.push("/pets")
-        })
+        this.props.addUser(user).then(() => this.props.history.push("/pets"))
     }
 
     render() {
