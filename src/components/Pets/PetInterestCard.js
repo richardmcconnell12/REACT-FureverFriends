@@ -3,7 +3,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import InterestedNotesModal from '../Notes/InterestedNotesModal'
-import EditNotesModal from '../Notes/EditNotesModal'
+// import EditNotesModal from '../Notes/EditNotesModal'
 import dbCalls from "../../modules/dbCalls"
 import NoteList from "../Notes/NoteList";
 import "./Pet.css"
@@ -12,7 +12,6 @@ export default class PetInterestCard extends Component {
 
     state = {
         myPet: {},
-        editModalVis: false,
         addModalVis: false,
         notes: []
     }
@@ -28,7 +27,6 @@ export default class PetInterestCard extends Component {
             .then(notes => this.setState({ notes: notes }))
     }
 
-
     componentDidMount() {
         dbCalls.getOnePet(this.props.interestedPet.petId)
             .then(result => this.setState({ myPet: result.petfinder.pet }))
@@ -37,7 +35,7 @@ export default class PetInterestCard extends Component {
 
     }
 
-    changeModalVis = (modal) => {
+    showModalVis = (modal) => {
         this.setState({ [modal]: true })
     }
 
@@ -64,16 +62,15 @@ export default class PetInterestCard extends Component {
                         <button type="button"
                             className="open-modal"
                             onClick={() => {
-                                this.changeModalVis("addModalVis")
+                                this.showModalVis("addModalVis")
                             }}>
                             Add a note!
                             </button>
-                        <NoteList interestedPet={this.props.interestedPet} notes={this.state.notes} deleteNote={this.deleteNote} modalVis={this.changeModalVis}></NoteList>
+                        <NoteList interestedPet={this.props.interestedPet} notes={this.state.notes} deleteNote={this.deleteNote} showModalVis={this.showModalVis} updateNotes={this.updateNotes} editNote={this.editNote}></NoteList>
                     </Card>
 
                     {this.state.addModalVis ? <InterestedNotesModal addModalVis={this.state.addModalVis} close={this.closeModalVis} interestedPet={this.props.interestedPet} notes={this.props.notes} updateNotes={this.updateNotes} /> : null}
 
-                    {this.state.editModalVis ? <EditNotesModal editModalVis={this.state.editModalVis} close={this.closeModalVis} interestedPet={this.props.interestedPet} notes={this.props.notes} updateNotes={this.updateNotes} editNote={this.props.editNote} /> : null}
                 </React.Fragment >
             )
         } else {

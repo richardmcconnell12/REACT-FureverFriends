@@ -76,12 +76,12 @@ export default {
     },
 
     getOneNote(id) {
-        return fetch(`${remoteURL}/notes?notes=${id}`)
+        return fetch(`${remoteURL}/notes?noteId=${id}`)
             .then(e => e.json())
     },
 
-    patchNote(editedNote) {
-        return fetch(`${remoteURL}/notes/${editedNote.id}`, {
+    patchNote(noteId, editedNote) {
+        return fetch(`${remoteURL}/notes/${noteId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

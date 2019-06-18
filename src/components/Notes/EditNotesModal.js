@@ -1,33 +1,48 @@
 import React, { Component } from 'react'
 import { DialogContent, DialogActions, Dialog, DialogTitle, Button, TextField } from '@material-ui/core';
+import dbCalls from '../../modules/dbCalls'
 
 
 export default class EditNotesModal extends Component {
 
     state = {
-        notes: null
+        note: this.props.note.note,
+        // date: this.props.note.date
+    }
+
+    handleChange = (evt, data) => {
+        console.log("evt", evt.target.value)
+        const stateToChange = {}
+        stateToChange[evt.target.id] = evt.target.value
+        this.setState(stateToChange)
     }
 
     editNote = () => {
         const editedNoteObj = {
-            userId: parseInt(sessionStorage.getItem("userId")),
-            petId: this.props.interestedPet.petId,
-            note: this.state.notes,
-            date: this.props.dateTime
+            id: this.props.note.id,
+            note: this.state.note,
+            // date: this.props.dateTime
         }
 
-        // let noteId = this.props.id
 
-        this.props.patchNote(editedNoteObj)
-        this.props.close()
+        // console.log("Obj to edit", editedNoteObj)
+
+        dbCalls.patchNote(this.props.note.id, editedNoteObj)
+            .then(this.props.updateNotes)
+        this.props.close("editModalVis")
     }
 
-    handleChange = (e) => {
-        const stateToChange = {}
-        stateToChange[e.target.id] = e.target.value
-        this.setState(stateToChange)
+    componentDidMount() {
+        console.log("note", this.props.note)
+        console.log("id", this.props.note.id)
+        //     dbCalls.getOneNote(this.props.note.id)
+        //         .then(note => {
+        //             this.setState({
+        //                 note: note.note,
+        //                 date: note.dateTime
+        //             });
+        //         });
     }
-
 
     render() {
         return (
@@ -36,16 +51,17 @@ export default class EditNotesModal extends Component {
                 aria-describedby="simple-modal-description"
                 maxWidth="sm" fullWidth
                 open={this.props.editModalVis}
-                onBackdropClick={this.props.close}
-            >
+                onClose={() => {
+                    this.props.close("editModalVis")
+                }}>
 
                 <DialogTitle>Edit Note</DialogTitle>
                 <DialogContent>
-                    <TextField margin="normal" id="notes" label="edit notes" type="text" multiline variant="outlined" onChange={this.handleChange} fullWidth />
+                    <TextField margin="normal" id="note" label="edit notes" type="text" multiline variant="outlined" value={this.state.note} onChange={this.handleChange} fullWidth />
                 </DialogContent>
 
                 <DialogActions>
-                    <Button color="secondary" varient="contained" onClick={this.editNote}>Submit!</Button>
+                    <Button color="secondary" varient="contained" onClick={this.editNote}>Edit</Button>
                     <Button color="secondary" varient="contained" onClick={() => {
                         this.props.close("editModalVis")
                     }}>Close</Button>

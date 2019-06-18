@@ -24,28 +24,8 @@
     },
     {
       "userId": 1,
-      "petId": "44378883",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "petId": "42906148",
+      "petId": "45003714",
       "id": 6
-    },
-    {
-      "userId": 1,
-      "petId": "44378882",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "petId": "44654140",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "petId": "44813207",
-      "id": 9
     }
   ],
   "notes": [
@@ -72,17 +52,10 @@
     },
     {
       "userId": 1,
-      "petId": "44378883",
-      "note": "Hello",
-      "date": "Jun 17, 2019, 1:49:34 PM",
+      "petId": "45003714",
+      "note": "Good boy?????",
+      "date": "Jun 18, 2019, 11:46:27 AM",
       "id": 6
-    },
-    {
-      "userId": 1,
-      "petId": "44378883",
-      "note": "Why though?",
-      "date": "Jun 17, 2019, 3:25:19 PM",
-      "id": 7
     }
   ]
 }

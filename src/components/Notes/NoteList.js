@@ -15,7 +15,8 @@ export default class NoteList extends Component {
                                 deleteNote={this.props.deleteNote}
                                 updateNotes={this.props.updateNotes}
                                 note={note}
-                                modalVis={this.props.modalVis}
+                                showModalVis={this.props.showModalVis}
+                                editNote={this.props.editNote}
                             />
                         })
                     }

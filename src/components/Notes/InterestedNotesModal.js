@@ -25,7 +25,7 @@ export default class InterestedNotesModal extends Component {
             date: dateTime
         }
         dbCalls.postNote(notesObj).then(() => this.props.updateNotes())
-        this.props.close()
+        this.props.close("addModalVis")
     }
 
     handleChange = (e) => {
@@ -43,8 +43,9 @@ export default class InterestedNotesModal extends Component {
                 aria-describedby="simple-modal-description"
                 maxWidth="sm" fullWidth
                 open={this.props.addModalVis}
-                onBackdropClick={this.props.close}
-            >
+                onClose={() => {
+                    this.props.close("addModalVis")
+                }}>
 
                 <DialogTitle>Add Notes</DialogTitle>
                 <DialogContent>
