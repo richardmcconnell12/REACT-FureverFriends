@@ -55,7 +55,6 @@ export default class PetInterestCard extends Component {
                             height: "316px",
                             backgroundSize: "240px 316px"
                         }}></div>
-                        {/* <img src={this.state.myPet.media.photos.photo[3].$t} className="pet-img" alt="pet-img"></img> */}
                         <Typography variant="body2" color="textPrimary" component="p">{this.state.myPet.breeds.breed.$t}</Typography>
                         <button type="button"
                             className="btn-unInterested"
