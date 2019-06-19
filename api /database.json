@@ -38,29 +38,9 @@
       "id": 4
     },
     {
-      "userId": 1,
-      "petId": "42906148",
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "petId": "44664413",
-      "id": 7
-    },
-    {
       "userId": 3,
       "petId": "41122861",
       "id": 8
-    },
-    {
-      "userId": 1,
-      "petId": "39631014",
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "petId": "44378883",
-      "id": 10
     },
     {
       "userId": 2,
@@ -78,29 +58,17 @@
       "id": 13
     },
     {
-      "userId": 1,
-      "petId": "44863505",
-      "id": 14
-    },
-    {
       "userId": 4,
       "petId": "41122861",
       "id": 15
     },
     {
       "userId": 1,
-      "petId": "41122861",
+      "petId": "42906148",
       "id": 16
     }
   ],
   "notes": [
-    {
-      "userId": 1,
-      "petId": "42906148",
-      "note": "Potty trained!",
-      "date": "Jun 17, 2019, 9:55:26 AM",
-      "id": 2
-    },
     {
       "userId": 1,
       "petId": "44378882",
@@ -128,27 +96,6 @@
       "note": "Does it work?",
       "date": "Jun 18, 2019, 1:03:07 PM",
       "id": 7
-    },
-    {
-      "userId": 1,
-      "petId": "42906148",
-      "note": "Good with other dogs and cats",
-      "date": "Jun 18, 2019, 1:05:30 PM",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "petId": "44664413",
-      "note": "Does great with children",
-      "date": "Jun 18, 2019, 1:25:15 PM",
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "petId": "44378883",
-      "note": "Ricky's note",
-      "date": "Jun 18, 2019, 2:49:43 PM",
-      "id": 10
     },
     {
       "userId": 2,

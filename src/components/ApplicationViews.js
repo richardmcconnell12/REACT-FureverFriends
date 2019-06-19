@@ -20,7 +20,7 @@ export default class ApplicationViews extends Component {
         .then(userResult => sessionStorage.setItem("userId", userResult.id))
         .then(() => dbCalls.getAllUsers(usersURL))
         .then(Allusers => this.setState({
-            users: Allusers             //added this three line of codes today to set the new user.
+            users: Allusers
         }))
 
     componentDidMount() {
