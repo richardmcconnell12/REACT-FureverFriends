@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
-// import CardActions from '@material-ui/core/CardActions';
 
 export default class PetCard extends Component {
+
+    state = {
+        interestDisabled: false
+    }
 
     render() {
         return (
@@ -19,8 +22,10 @@ export default class PetCard extends Component {
                             className="btn-interested"
                             onClick={() => {
                                 this.props.addInterestedPet(this.props.pet.id)
-                            }}>
-                            Interested!
+                                this.setState({ interestDisabled: true })
+                            }}
+                            disabled={this.state.interestDisabled}
+                        >Interested!
                     </button>
                     </Card>
 

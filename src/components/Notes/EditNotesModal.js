@@ -24,24 +24,9 @@ export default class EditNotesModal extends Component {
             // date: this.props.dateTime
         }
 
-
-        // console.log("Obj to edit", editedNoteObj)
-
         dbCalls.patchNote(this.props.note.id, editedNoteObj)
             .then(this.props.updateNotes)
         this.props.close("editModalVis")
-    }
-
-    componentDidMount() {
-        console.log("note", this.props.note)
-        console.log("id", this.props.note.id)
-        //     dbCalls.getOneNote(this.props.note.id)
-        //         .then(note => {
-        //             this.setState({
-        //                 note: note.note,
-        //                 date: note.dateTime
-        //             });
-        //         });
     }
 
     render() {
