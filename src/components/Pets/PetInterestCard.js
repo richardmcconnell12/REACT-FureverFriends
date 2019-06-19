@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import CardContent from '@material-ui/core/CardContent';
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
+import { Button, CardActions, CardContent, CardHeader, Card, CardMedia, Typography } from '@material-ui/core';
 import InterestedNotesModal from '../Notes/InterestedNotesModal'
 import dbCalls from "../../modules/dbCalls"
 import NoteList from "../Notes/NoteList";
@@ -47,29 +45,28 @@ export default class PetInterestCard extends Component {
         if ("age" in this.state.myPet) {
             return (
                 <React.Fragment>
-                    <Card className="card-body">
-                        <CardContent> <h3>{this.state.myPet.name.$t} </h3></CardContent>
-                        <div style={{
-                            backgroundImage: `url(${this.state.myPet.media.photos.photo[3].$t})`,
-                            width: "240px",
-                            height: "316px",
-                            backgroundSize: "240px 316px"
-                        }}></div>
-                        <Typography variant="body2" color="textPrimary" component="p">{this.state.myPet.breeds.breed.$t}</Typography>
-                        <button type="button"
+                    <Card>
+                        <CardHeader title={this.state.myPet.name.$t} style={{justifyContent: "center"}} />
+                        <CardMedia style={{ height: 300, width: 300, backgroundPosition: "center", backgroundSize: "contain", backgroundRepeat: "no-repeat" }} image={this.state.myPet.media.photos.photo[3].$t}
+                            title={this.state.myPet.name.$t}>
+                        </CardMedia>
+                        <CardContent>
+                            <Typography variant="body2" color="textPrimary" component="p">{this.state.myPet.breeds.breed.$t}</Typography>
+                        </CardContent>
+                        <Button type="button"
                             className="btn-unInterested"
                             onClick={() => {
                                 this.props.deleteInterestedPet(this.props.interestedPet.id)
                             }}>
                             Sorry, buddy....
-                        </button>
-                        <button type="button"
+                        </Button>
+                        <Button type="button"
                             className="open-modal"
                             onClick={() => {
                                 this.showModalVis("addModalVis")
                             }}>
                             Add a note!
-                            </button>
+                        </Button>
                         <NoteList interestedPet={this.props.interestedPet} notes={this.state.notes} deleteNote={this.deleteNote} showModalVis={this.showModalVis} updateNotes={this.updateNotes} editNote={this.editNote}></NoteList>
                     </Card>
 
