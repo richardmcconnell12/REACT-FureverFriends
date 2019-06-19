@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PetCard from "./PetCard"
 import Card from '@material-ui/core/Card';
-import dbCalls from '../../modules/dbCalls'
+import dbCalls from '../../modules/dbCalls';
+import Grid from '@material-ui/core/Grid'
 import "./Pet.css"
 
 
@@ -18,16 +19,24 @@ class PetList extends Component {
     render() {
         return (
             <React.Fragment>
-                <Card className="pets">
-                    {
-                        this.props.pets.map(pet => {
-                            return <PetCard key={pet.id.$t} pet={pet}
+                <Grid
+                    container
+                    wrap="wrap"
+                    direction="row"
+                    spacing={3}
+                    justify="center"
+                    alignItems="stretch"
+                >
+                    {this.props.pets.map(pet => (
+                        <Grid item md={4} sm={4}>
+                            <PetCard key={pet.id.$t} pet={pet}
                                 addInterestedPet={this.addInterestedPet}
                             />
-                        })
-                    }
-                </Card>
-            </React.Fragment>
+                        </Grid>
+                    ))}
+
+                </Grid>
+            </React.Fragment >
         )
     }
 }

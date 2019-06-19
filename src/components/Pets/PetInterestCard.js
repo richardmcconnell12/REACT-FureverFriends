@@ -3,7 +3,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import InterestedNotesModal from '../Notes/InterestedNotesModal'
-// import EditNotesModal from '../Notes/EditNotesModal'
 import dbCalls from "../../modules/dbCalls"
 import NoteList from "../Notes/NoteList";
 import "./Pet.css"
@@ -50,7 +49,12 @@ export default class PetInterestCard extends Component {
                 <React.Fragment>
                     <Card className="card-body">
                         <CardContent> <h3>{this.state.myPet.name.$t} </h3></CardContent>
-                        <img src={this.state.myPet.media.photos.photo[3].$t} className="pet-img" alt="pet-img"></img>
+                        <div style={{
+                            backgroundImage: `url(${this.state.myPet.media.photos.photo[3].$t})`,
+                            width: "240px",
+                            height: "316px",
+                            backgroundSize: "240px 316px"
+                        }}></div>
                         <Typography variant="body2" color="textPrimary" component="p">{this.state.myPet.breeds.breed.$t}</Typography>
                         <button type="button"
                             className="btn-unInterested"
