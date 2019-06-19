@@ -66,16 +66,19 @@
       "userId": 1,
       "petId": "42906148",
       "id": 16
-    }
-  ],
-  "notes": [
+    },
+    {
+      "userId": 1,
+      "petId": "44378883",
+      "id": 17
+    },
     {
       "userId": 1,
       "petId": "44378882",
-      "note": "Good with other doggos",
-      "date": "Jun 17, 2019, 9:58:43 AM",
-      "id": 3
-    },
+      "id": 18
+    }
+  ],
+  "notes": [
     {
       "userId": 1,
       "petId": "44654140",
@@ -89,13 +92,6 @@
       "note": "Good boy?????",
       "date": "Jun 18, 2019, 11:46:27 AM",
       "id": 6
-    },
-    {
-      "userId": 1,
-      "petId": "44378882",
-      "note": "Does it work?",
-      "date": "Jun 18, 2019, 1:03:07 PM",
-      "id": 7
     },
     {
       "userId": 2,
