@@ -11,93 +11,11 @@
       "id": 2
     },
     {
-      "email": "brenda@email.com",
-      "password": "brenda",
-      "id": 3
-    },
-    {
-      "email": "dan@email.com",
-      "password": "dan",
-      "id": 4
-    },
-    {
       "email": "sean@email.com",
       "password": "sean",
-      "id": 5
-    }
-  ],
-  "userInterested": [
-    {
-      "userId": 2,
-      "petId": "44664413",
       "id": 3
-    },
-    {
-      "userId": 2,
-      "petId": "42906148",
-      "id": 4
-    },
-    {
-      "userId": 3,
-      "petId": "41122861",
-      "id": 8
-    },
-    {
-      "userId": 2,
-      "petId": "44378883",
-      "id": 11
-    },
-    {
-      "userId": 5,
-      "petId": "44863505",
-      "id": 12
-    },
-    {
-      "userId": 5,
-      "petId": "45014793",
-      "id": 13
-    },
-    {
-      "userId": 4,
-      "petId": "41122861",
-      "id": 15
     }
   ],
-  "notes": [
-    {
-      "userId": 1,
-      "petId": "44654140",
-      "note": "Look at her!",
-      "date": "Jun 17, 2019, 10:23:02 AM",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "petId": "45003714",
-      "note": "Good boy?????",
-      "date": "Jun 18, 2019, 11:46:27 AM",
-      "id": 6
-    },
-    {
-      "userId": 2,
-      "petId": "44378883",
-      "note": "Bryan's note",
-      "date": "Jun 18, 2019, 2:50:37 PM",
-      "id": 11
-    },
-    {
-      "userId": 5,
-      "petId": "44863505",
-      "note": "Sean's note edited",
-      "date": "Jun 18, 2019, 2:57:50 PM",
-      "id": 12
-    },
-    {
-      "userId": 4,
-      "petId": "41122861",
-      "note": "Dan's note",
-      "date": "Jun 18, 2019, 3:39:04 PM",
-      "id": 13
-    }
-  ]
+  "userInterested": [],
+  "notes": []
 }
