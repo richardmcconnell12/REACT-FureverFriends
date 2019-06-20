@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PetInterestCard from './PetInterestCard'
-import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid'
 import dbCalls from '../../modules/dbCalls';
 
@@ -36,8 +35,8 @@ export default class PetInterest extends Component {
                         alignItems="stretch"
                     >
                         {this.state.userInterested.map(intPet => (
-                            <Grid item md={4} sm={4}>
-                                <PetInterestCard key={intPet.petId} interestedPet={intPet}
+                            <Grid item md={4} sm={4} key={intPet.petId} >
+                                <PetInterestCard interestedPet={intPet}
                                     sessionId={sessionStorage.getItem("userId")}
                                     deleteInterestedPet={this.deleteInterestedPet}
                                     updateNotes={this.props.updateNotes}
