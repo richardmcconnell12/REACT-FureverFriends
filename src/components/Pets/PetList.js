@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PetCard from "./PetCard"
-import Card from '@material-ui/core/Card';
 import dbCalls from '../../modules/dbCalls';
 import Grid from '@material-ui/core/Grid'
 import "./Pet.css"
@@ -28,8 +27,8 @@ class PetList extends Component {
                     alignItems="stretch"
                 >
                     {this.props.pets.map(pet => (
-                        <Grid item md={4} sm={4}>
-                            <PetCard key={pet.id.$t} pet={pet}
+                        <Grid item md={4} sm={4} key={pet.id.$t}>
+                            <PetCard pet={pet}
                                 addInterestedPet={this.addInterestedPet}
                             />
                         </Grid>

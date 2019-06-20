@@ -21,7 +21,7 @@ export default class PetCard extends Component {
                             {/* <Typography variant="body2" color="textPrimary" component="p"> {this.props.pet.description.$t} </Typography> */}
                         </CardContent>
                         <CardActions>
-                            <Button type="button"
+                            <Button type="button" variant="outlined" size="small" color="primary"
                                 className="btn-interested"
                                 onClick={() => {
                                     this.props.addInterestedPet(this.props.pet.id)
