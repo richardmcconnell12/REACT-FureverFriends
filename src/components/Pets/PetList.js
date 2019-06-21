@@ -18,6 +18,7 @@ class PetList extends Component {
     render() {
         return (
             <React.Fragment>
+                <h3>Welcome</h3>
                 <Grid
                     container
                     wrap="wrap"
@@ -30,6 +31,7 @@ class PetList extends Component {
                         <Grid item md={4} sm={4} key={pet.id.$t}>
                             <PetCard pet={pet}
                                 addInterestedPet={this.addInterestedPet}
+                                sessionId={this.props.sessionId}
                             />
                         </Grid>
                     ))}

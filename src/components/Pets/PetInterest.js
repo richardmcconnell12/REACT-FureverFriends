@@ -6,7 +6,7 @@ import dbCalls from '../../modules/dbCalls';
 export default class PetInterest extends Component {
 
     state = {
-        userInterested: []
+        userInterested: [],
     }
 
     componentDidMount() {
@@ -22,7 +22,6 @@ export default class PetInterest extends Component {
 
 
     render() {
-
         return (
             <div className="int-pets" >
                 <React.Fragment>

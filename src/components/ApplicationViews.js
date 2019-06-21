@@ -46,7 +46,7 @@ export default class ApplicationViews extends Component {
                 }} />
 
                 <Route path="/pets" render={(props) => {
-                    return <PetList pets={this.state.pets} {...props}
+                    return <PetList pets={this.state.pets} sessionId={this.state.sessionId} {...props}
                     />
                 }} />
 
