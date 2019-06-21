@@ -11,11 +11,130 @@
       "id": 2
     },
     {
-      "email": "sean@email.com",
-      "password": "sean",
+      "email": "hughes@email.com",
+      "password": "hughes",
       "id": 3
     }
   ],
-  "userInterested": [],
-  "notes": []
+  "userInterested": [
+    {
+      "userId": 1,
+      "petId": "41122861",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "petId": "44664413",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "petId": "44863505",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "petId": "43789305",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "petId": "43789312",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "petId": "28545016",
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "petId": "44863505",
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "petId": "44654140",
+      "id": 8
+    }
+  ],
+  "notes": [
+    {
+      "userId": 1,
+      "petId": "41122861",
+      "note": "What a great pup, very energetic and very playful!",
+      "date": "Jun 20, 2019, 8:26:39 PM",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "petId": "41122861",
+      "note": "May consider adopting him!",
+      "date": "Jun 20, 2019, 8:27:07 PM",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "petId": "41122861",
+      "note": "Friendly with the whole family",
+      "date": "Jun 20, 2019, 8:27:33 PM",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "petId": "44664413",
+      "note": "Shy at first, but really came around once he was comfortable with his surroundings.",
+      "date": "Jun 20, 2019, 8:28:17 PM",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "petId": "44664413",
+      "note": "Very kid friendly... Not so much with cats..",
+      "date": "Jun 20, 2019, 8:28:41 PM",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "petId": "44863505",
+      "note": "Goodest boy, and look at that face! ",
+      "date": "Jun 20, 2019, 8:29:00 PM",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "petId": "44863505",
+      "note": "Another adoption to consider when adopting.",
+      "date": "Jun 20, 2019, 8:29:28 PM",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "petId": "44863505",
+      "note": "$250 bucks, which isn't bad considering he's a clean bill of health, spayed and everything. ",
+      "date": "Jun 20, 2019, 8:33:46 PM",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "petId": "43789305",
+      "note": "She like my girlfriend more than me.... ",
+      "date": "Jun 20, 2019, 8:34:06 PM",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "petId": "43789312",
+      "note": "I mean, he has the same name as me... ",
+      "date": "Jun 20, 2019, 8:35:31 PM",
+      "id": 10
+    },
+    {
+      "userId": 2,
+      "petId": "44863505",
+      "note": "Great with the kids.",
+      "date": "Jun 20, 2019, 8:42:00 PM",
+      "id": 11
+    }
+  ]
 }

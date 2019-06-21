@@ -84,10 +84,10 @@ function NavBar() {
                         </div>
                         <ul className="nav nav-pills">
                             <li className="nav-item">
-                                <Link color="primary" variant="body1" className="nav-link" to="/pets">All Pets</Link>
+                                <Link color="primary" variant="body1" className="nav-link" to="/pets">Available Pets</Link>
                             </li>
                             <li className="nav-item">
-                                <Link color="primary" variant="body1" className="nav-link" to="/pet-interested">Interested List</Link>
+                                <Link color="primary" variant="body1" className="nav-link" to="/pet-interested">Interested Pets</Link>
                             </li>
                             <li className="nav-item">
                                 <Link color="primary" variant="body1" className="nav-link" to="/login">Log Out</Link>
