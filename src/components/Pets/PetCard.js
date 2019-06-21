@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button, CardActions, CardContent, CardHeader, Card, CardMedia, Typography } from '@material-ui/core';
+import { Fab, CardActions, CardContent, CardHeader, Card, CardMedia, Typography } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
 export default class PetCard extends Component {
 
@@ -21,15 +22,15 @@ export default class PetCard extends Component {
                             {/* <Typography variant="body2" color="textPrimary" component="p"> {this.props.pet.description.$t} </Typography> */}
                         </CardContent>
                         <CardActions>
-                            <Button type="button" variant="outlined" size="small" color="primary"
+                            <Fab size="small" color="primary" aria-label="Add"
                                 className="btn-interested"
                                 onClick={() => {
                                     this.props.addInterestedPet(this.props.pet.id)
                                     this.setState({ interestDisabled: true })
                                 }}
                                 disabled={this.state.interestDisabled}
-                            >Interested!
-                            </Button>
+
+                            ><AddIcon /></Fab>
                         </CardActions>
                     </Card>
 

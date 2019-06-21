@@ -43,11 +43,6 @@
       "id": 5
     },
     {
-      "userId": 1,
-      "petId": "28545016",
-      "id": 6
-    },
-    {
       "userId": 2,
       "petId": "44863505",
       "id": 7
@@ -56,6 +51,11 @@
       "userId": 2,
       "petId": "44654140",
       "id": 8
+    },
+    {
+      "userId": 1,
+      "petId": "28545016",
+      "id": 9
     }
   ],
   "notes": [
@@ -123,18 +123,18 @@
       "id": 9
     },
     {
-      "userId": 1,
-      "petId": "43789312",
-      "note": "I mean, he has the same name as me... ",
-      "date": "Jun 20, 2019, 8:35:31 PM",
-      "id": 10
-    },
-    {
       "userId": 2,
       "petId": "44863505",
       "note": "Great with the kids.",
       "date": "Jun 20, 2019, 8:42:00 PM",
       "id": 11
+    },
+    {
+      "userId": 1,
+      "petId": "43789312",
+      "note": "I mean come on, he has the same name as me... ",
+      "date": "Jun 20, 2019, 10:10:45 PM",
+      "id": 12
     }
   ]
 }
