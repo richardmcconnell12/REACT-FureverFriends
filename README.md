@@ -10,7 +10,8 @@ All data is specific to the user that is logged in.
 
 Furever Friends utilizes React, React-Router-DOM, and Material-UI for styling.
 1. clone repo git@github.com:richardmcconnell12/REACT-FureverFriends.git
-2. run ```npm install``` to pull in dependencies 
-2. run the JSON server at ```json-server -p 5002 -w database.json``` ( ```npm install -g json-server if necessary``` )
+1. run ```npm install``` to pull in dependencies 
+1. cd into api directory in another terminal window
+1. run the JSON server at ```json-server -p 5002 -w database.json``` ( ```npm install -g json-server if necessary``` )
 3. ```npm start``` in root directory to start the application
 4. create a new account and log in.
